@@ -2,11 +2,13 @@
   "name": "product-store",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "dist/server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "dev": "nodemon back-end/server"
+    "prestart": "tsc",
+    "start": "node dist/server",
+    "debugback": "nodemon -e ts -w back-end --delay 5 back-end/server",
+    "debugclient": "nodemon -w front-end --delay 5 front-end/index"
   },
   "type": "module",
   "keywords": [],
@@ -18,7 +20,9 @@
     "mongoose": "^8.9.2"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^22.10.2",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
